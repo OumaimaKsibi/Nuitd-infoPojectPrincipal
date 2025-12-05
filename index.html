@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Village Numérique Résistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <link href="templatemo-neural-style.css" rel="stylesheet" />
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        width: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Epic Neural Background -->
+    <div class="neural-background"></div>
+
+    <!-- Floating Geometric Shapes -->
+    <div class="geometric-shapes">
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+      <div class="shape"></div>
+    </div>
+
+    <!-- Neural Network Lines -->
+    <div class="neural-lines">
+      <div class="neural-line"></div>
+      <div class="neural-line"></div>
+      <div class="neural-line"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="glass">
+      <nav>
+        <a href="#home" class="logo">
+          <svg
+            class="logo-icon"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <linearGradient
+                id="logoGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop offset="0%" style="stop-color: #e0a3ff" />
+                <stop offset="50%" style="stop-color: #ff69b4" />
+                <stop offset="100%" style="stop-color: #9370db" />
+              </linearGradient>
+            </defs>
+            <circle
+              cx="50"
+              cy="30"
+              r="8"
+              fill="url(#logoGradient)"
+              opacity="0.8"
+            >
+              <animate
+                attributeName="opacity"
+                values="0.8;1;0.8"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <circle
+              cx="30"
+              cy="60"
+              r="6"
+              fill="url(#logoGradient)"
+              opacity="0.6"
+            >
+              <animate
+                attributeName="opacity"
+                values="0.6;1;0.6"
+                dur="2.5s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <circle
+              cx="70"
+              cy="65"
+              r="7"
+              fill="url(#logoGradient)"
+              opacity="0.7"
+            >
+              <animate
+                attributeName="opacity"
+                values="0.7;1;0.7"
+                dur="1.8s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <line
+              x1="50"
+              y1="30"
+              x2="30"
+              y2="60"
+              stroke="url(#logoGradient)"
+              stroke-width="2"
+              opacity="0.6"
+            >
+              <animate
+                attributeName="opacity"
+                values="0.6;1;0.6"
+                dur="3s"
+                repeatCount="indefinite"
+              />
+            </line>
+            <line
+              x1="50"
+              y1="30"
+              x2="70"
+              y2="65"
+              stroke="url(#logoGradient)"
+              stroke-width="2"
+              opacity="0.6"
+            >
+              <animate
+                attributeName="opacity"
+                values="0.6;1;0.6"
+                dur="2.2s"
+                repeatCount="indefinite"
+              />
+            </line>
+            <line
+              x1="30"
+              y1="60"
+              x2="70"
+              y2="65"
+              stroke="url(#logoGradient)"
+              stroke-width="2"
+              opacity="0.6"
+            >
+              <animate
+                attributeName="opacity"
+                values="0.6;1;0.6"
+                dur="2.8s"
+                repeatCount="indefinite"
+              />
+            </line>
+          </svg>
+          VNR
+        </a>
+        <ul class="nav-links">
+          <li><a href="#hero">Accueil</a></li>
+          <li><a href="#features">Problème</a></li>
+          <li><a href="#showcase">interactive</a></li>
+          <li><a href="#timeline">Solution</a></li>
+          <li><a href="#simulateur">Simulateur</a></li>
+          <li><a href="#outils">Outils</a></li>
+          <li><a href="#ressources">Ressources</a></li>
+          <li>
+            <a href="#contact" target="_blank" class="external-link"
+              >À propos</a
+            >
+          </li>
+        </ul>
+        <div class="mobile-menu-toggle">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </div>
+      </nav>
+      <div class="mobile-nav">
+        <a href="#hero">Accueil</a>
+        <a href="#features">Problème</a>
+        <a href="#showcase">Solution</a>
+        <a href="#timeline">Architecture</a>
+        <a href="#simulateur">Simulateur</a>
+        <a href="#carte">Carte</a>
+        <a href="#ressources">Ressources</a>
+        <a href="https://example.com" target="_blank" class="external-link"
+          >À propos</a
+        >
+      </div>
+    </header>
+
+    <!-- Section 1: Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-subtitle">Bienvenu au Village Numérique Résistant</div>
+        <h1>
+          Windows 10 en fin de vie ? Et si votre établissement devenait un
+          village numérique résistant ?
+        </h1>
+
+        <div class="hero-description">
+          <p>
+            Rejoignez la dunauté NIRD et libérez-vous des GAFAM avec des
+            solutions libres, durables et responsables.
+          </p>
+        </div>
+
+        <div class="cta-buttons">
+          <a href="#features" class="cta-button">Lancer l'aventure →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Diagonal Features -->
+    <section class="features" id="features">
+      <div class="features-container">
+        <h2 class="section-title">Le Problème</h2>
+        <h1>Pourquoi résister ?</h1>
+        <div class="diagonal-grid">
+          <div class="feature-row">
+            <div class="feature-content glass">
+              <div class="feature-icon">💻</div>
+              <h3>Obsolescence programmée</h3>
+              <p>vidéo courte (30s) sur les ordis jetés</p>
+            </div>
+            <div class="feature-visual glass"></div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-content glass">
+              <div class="feature-icon">🔐</div>
+              <h3>Dépendance aux licences</h3>
+              <p>graphique "Coût annuel GAFAM vs Libre"</p>
+            </div>
+            <div class="feature-visual glass"></div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-content glass">
+              <div class="feature-icon">💸</div>
+              <h3>Données hors UE</h3>
+              <p>carte mondiale des data centers GAFAM</p>
+            </div>
+            <div class="feature-visual glass"></div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-content glass">
+              <div class="feature-icon">🔐</div>
+              <h3>Chiffre clé</h3>
+              <p>
+                "En France, 80% des établissements dépendent de solutions
+                propriétaires."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Hexagonal Showcase -->
+    <section class="showcase" id="showcase">
+      <h2 class="section-title">L'aventure interactive</h2>
+      <h1>Devenez le héros de votre établissement !</h1>
+      <div class="hexagon-container">
+        <div class="hexagon">
+          <div class="hexagon-inner glass">
+            <div class="hexagon-icon">👩‍🏫</div>
+            <h4>Enseignant(e)</h4>
+          </div>
+        </div>
+        <div class="hexagon">
+          <div class="hexagon-inner glass">
+            <div class="hexagon-icon">👨‍🎓</div>
+            <h4>Élève / Éco-délégué</h4>
+          </div>
+        </div>
+
+        <div class="hexagon">
+          <div class="hexagon-inner glass">
+            <div class="hexagon-icon">🛠️</div>
+            <h4>Technicien(ne) / Admin réseau</h4>
+          </div>
+        </div>
+
+        <div class="hexagon">
+          <div class="hexagon-inner glass">
+            <div class="hexagon-icon">🏛️</div>
+            <h4>Direction / Collectivité</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Timeline -->
+    <section class="timeline" id="timeline">
+      <h2 class="section-title">Les solutions NIRD</h2>
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-content glass">
+            <div class="timeline-year">Mission 1</div>
+            <h4>Sauver un ordinateur de la benne</h4>
+            <p>Découvrir le reconditionnement avec Linux.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content glass">
+            <div class="timeline-year">Mission 2</div>
+            <h4>Installer Moodle sans Google</h4>
+            <p>Tutoriel pas à pas avec simulateur d'installation.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content glass">
+            <div class="timeline-year">Mission 3</div>
+            <h4>Créer un serveur local avec Proxmox</h4>
+            <p>Guide vidéo + accès à une VM de test</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content glass">
+            <div class="timeline-year">Mission 4</div>
+            <h4>Organiser un atelier de sobriété numérique</h4>
+            <p>Kit téléchargeable (affiches, présentation, quiz)</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Simulateur d'impact -->
+    <section class="contact" id="simulateur">
+      <div class="contact-container">
+        <div class="contact-info glass">
+          <h3>📊 Simulateur d'impact</h3>
+          <p>Mesurez votre impact en direct</p>
+
+          <div style="margin-top: 30px">
+            <label style="display: block; margin-bottom: 10px; font-weight: 600"
+              >Nombre d'ordinateurs reconditionnés :</label
+            >
+            <input
+              type="range"
+              id="ordinateurs"
+              min="0"
+              max="100"
+              value="0"
+              style="width: 100%; margin-bottom: 5px"
+            />
+            <span id="ordis-value" style="font-size: 1.2em; color: #e0a3ff"
+              >0</span
+            >
+          </div>
+
+          <div style="margin-top: 20px">
+            <label style="display: block; margin-bottom: 10px; font-weight: 600"
+              >Nombre de licences logicielles supprimées :</label
+            >
+            <input
+              type="range"
+              id="licences"
+              min="0"
+              max="50"
+              value="0"
+              style="width: 100%; margin-bottom: 5px"
+            />
+            <span id="licences-value" style="font-size: 1.2em; color: #e0a3ff"
+              >0</span
+            >
+          </div>
+
+          <div style="margin-top: 20px">
+            <label style="display: block; margin-bottom: 10px; font-weight: 600"
+              >Passage à un hébergement local :</label
+            >
+            <input
+              type="range"
+              id="hebergement"
+              min="0"
+              max="100"
+              value="0"
+              style="width: 100%; margin-bottom: 5px"
+            />
+            <span
+              id="hebergement-value"
+              style="font-size: 1.2em; color: #e0a3ff"
+              >0%</span
+            >
+          </div>
+        </div>
+
+        <div class="contact-form glass">
+          <h3>Résultats dynamiques :</h3>
+          <div
+            style="
+              margin: 20px 0;
+              padding: 20px;
+              background: rgba(224, 163, 255, 0.1);
+              border-radius: 10px;
+            "
+          >
+            <p style="font-size: 1.3em; margin: 15px 0">
+              💰 Économies financières :
+              <span id="economies" style="color: #e0a3ff; font-weight: bold"
+                >0</span
+              >
+              €/an
+            </p>
+            <p style="font-size: 1.3em; margin: 15px 0">
+              🌱 Kg de CO₂ évités :
+              <span id="co2" style="color: #e0a3ff; font-weight: bold">0</span>
+              kg
+            </p>
+            <p style="font-size: 1.3em; margin: 15px 0">
+              🇫🇷 Données gardées en France :
+              <span id="donnees" style="color: #e0a3ff; font-weight: bold"
+                >0</span
+              >%
+            </p>
+          </div>
+          <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8">
+            Ajustez les sliders pour voir l'impact de vos actions en temps réel
+            !
+          </p>
+        </div>
+      </div>
+    </section>
+
+   
+
+    <!-- Section 7: Ressources -->
+    <section class="hero" id="ressources">
+      <div class="hero-content">
+        <h1>📚 Ressources</h1>
+
+        <div class="hero-description">
+          <p><strong>Fiches pratiques PDF :</strong></p>
+          <ul style="text-align: left; max-width: 600px; margin: 20px auto">
+            <li>"Installer Ubuntu en 10 étapes"</li>
+            <li>"Migrer de Google Drive à Nextcloud"</li>
+            <li>"Guide d'achat de matériel reconditionné"</li>
+            <li>Installer Linux Mint</li>
+            <li>Installer Moodle sans Google</li>
+            <li>Créer un serveur local avec Proxmox</li>
+            <li>Organiser un atelier de sobriété numérique</li>
+          </ul>
+
+          <p style="margin-top: 30px"><strong>Vidéos :</strong></p>
+          <ul style="text-align: left; max-width: 600px; margin: 20px auto">
+            <li>Playlist "NIRD en actions" (interviews, tutoriels)</li>
+            <li>Reportages France 3, France Inter</li>
+          </ul>
+
+          <p style="margin-top: 30px"><strong>Liens utiles :</strong></p>
+          <ul style="text-align: left; max-width: 600px; margin: 20px auto">
+            <li>Forge NIRD officielle</li>
+            <li>Annuaire des associations du libre</li>
+            <li>Kit de sensibilisation pour éco-délégués</li>
+          </ul>
+        </div>
+
+        
+      </div>
+    </section>
+
+    <!-- Section 8: Communauté & entraide -->
+    <section class="showcase" id="communaute">
+      <h2 class="section-title">👥 Communauté & entraide</h2>
+      <div class="hexagon-container">
+        <div class="hexagon">
+          <div class="hexagon-inner glass">
+            <div class="hexagon-icon">💬</div>
+            <h4>Forum intégré</h4>
+            <p style="font-size: 0.9em; opacity: 0.8">
+              Échangez avec la communauté
+            </p>
+          </div>
+        </div>
+        <div class="hexagon">
+          <div class="hexagon-inner glass">
+            <div class="hexagon-icon">📅</div>
+            <h4>Agenda des événements</h4>
+            <p style="font-size: 0.9em; opacity: 0.8">
+              Webinaires, ateliers, Nuit de l'Info
+            </p>
+          </div>
+        </div>
+
+        <div class="hexagon">
+          <div class="hexagon-inner glass">
+            <div class="hexagon-icon">📝</div>
+            <h4>Appel à contributions</h4>
+            <p style="font-size: 0.9em; opacity: 0.8">
+              Partagez votre solution !
+            </p>
+          </div>
+        </div>
+
+        <div class="hexagon">
+          <div class="hexagon-inner glass">
+            <div class="hexagon-icon">📸</div>
+            <h4>Galeries de projets</h4>
+            <p style="font-size: 0.9em; opacity: 0.8">
+              Photos, schémas, retours d'expérience
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Outils en ligne -->
+    <section class="features" id="outils">
+      <div class="features-container">
+        <h2 class="section-title">🛠️ Outils en ligne</h2>
+        <div class="diagonal-grid">
+          <div class="feature-row">
+            <div class="feature-content glass">
+              <div class="feature-icon">📋</div>
+              <h3>Diagnostic flash</h3>
+              <p>"À quel point êtes-vous dépendant ?" (quiz 5 questions)</p>
+              <button
+                onclick="openQuizPopup()"
+                style="
+                  margin-top: 15px;
+                  padding: 10px 20px;
+                  background: rgba(224, 163, 255, 0.2);
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                "
+              >
+                Commencer
+              </button>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-content glass">
+              <div class="feature-icon">📄</div>
+              <h3>Générateur d'argumentaire</h3>
+              <p>Pour convaincre sa direction</p>
+              <button
+                style="
+                  margin-top: 15px;
+                  padding: 10px 20px;
+                  background: rgba(224, 163, 255, 0.2);
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                "
+              >
+                Générer
+              </button>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-content glass">
+              <div class="feature-icon">⏱️</div>
+              <h3>Calculateur de durée de vie</h3>
+              <p>"Mon ordinateur peut-il encore servir ?"</p>
+              <button
+                onclick="openCalculatorPopup()"
+                style="
+                  margin-top: 15px;
+                  padding: 10px 20px;
+                  background: rgba(224, 163, 255, 0.2);
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                "
+              >
+                Calculer
+              </button>
+            </div>
+          </div>
+
+          <div class="feature-row">
+            <div class="feature-content glass">
+              <div class="feature-icon">🔍</div>
+              <h3>Chercheur de ressources libres</h3>
+              <p>Moteur de recherche interne (par matière, niveau)</p>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Rechercher une ressource..."
+                style="
+                  padding: 10px;
+                  width: 100%;
+                  margin-top: 10px;
+                  background: rgba(255, 255, 255, 0.1);
+                  border: none;
+                  border-radius: 5px;
+                  color: white;
+                "
+              />
+
+              <button
+                onclick="searchResources()"
+                style="
+                  margin-top: 10px;
+                  padding: 10px 20px;
+                  background: rgba(224, 163, 255, 0.2);
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  width: 100%;
+                "
+              >
+                Rechercher
+              </button>
+              <div
+                id="searchResults"
+                style="
+                  margin-top: 15px;
+                  padding: 15px;
+                  background: rgba(255, 255, 255, 0.05);
+                  border-radius: 10px;
+                  display: none;
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Témoignages -->
+    <section class="timeline" id="temoignages">
+      <h2 class="section-title">📌 Ils l'ont fait</h2>
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-content glass">
+            <div class="timeline-year">Collège rural</div>
+            <h4>Marc, professeur</h4>
+            <p>
+              "On a installé Moodle sur un Raspberry Pi. Les élèves adorent, et
+              on a sauvé 2000 € de licences."
+            </p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content glass">
+            <div class="timeline-year">École primaire</div>
+            <h4>Sophie, directrice</h4>
+            <p>
+              "Grâce à Linux Mint, nos vieux ordinateurs ont une seconde vie.
+              Les élèves sont ravis !"
+            </p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content glass">
+            <div class="timeline-year">Lycée</div>
+            <h4>Thomas, admin réseau</h4>
+            <p>
+              "Le passage à Nextcloud nous a permis de garder le contrôle sur
+              nos données. C'est une libération !"
+            </p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11: À vous de jouer -->
+    <section class="hero" id="action">
+      <div class="hero-content">
+        <h1>🧩 À vous de jouer !</h1>
+        <div class="hero-subtitle">Prêt à libérer votre établissement ?</div>
+
+        <div class="hero-description">
+          <p><strong>Liste d'actions immédiates :</strong></p>
+          <ul
+            style="
+              text-align: left;
+              max-width: 600px;
+              margin: 20px auto;
+              font-size: 1.1em;
+            "
+          >
+            <li>Télécharger le kit de démarrage</li>
+            <li>Rejoindre le forum d'entraide</li>
+            <li>Organiser une réunion de sensibilisation</li>
+            <li>Contacter un membre NIRD près de chez vous</li>
+          </ul>
+        </div>
+
+        <div class="cta-buttons">
+          <a href="#" class="cta-button">Je lance mon projet →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 12: Contact -->
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <div class="contact-info glass">
+          <h3>Contactez-nous</h3>
+          <p>
+            Connect through the dimensional gateway and let us initialize your
+            journey into the digital consciousness matrix.
+          </p>
+
+          <div class="social-links">
+            <a href="#" class="glass">📡</a>
+            <a href="#" class="glass">🌐</a>
+            <a href="#" class="glass">💬</a>
+            <a href="#" class="glass">📨</a>
+          </div>
+        </div>
+
+        <div class="contact-form glass">
+          <div class="form-group">
+            <input type="text" placeholder="Neural ID (Name)" required />
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              placeholder="Quantum Channel (Email)"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              placeholder="Mission Objective (Subject)"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+              rows="5"
+              placeholder="Transmission Data (Message)"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="submit-btn">TRANSMIT TO MATRIX</button>
+        </div>
+      </div>
+    </section>
+    <!-- Quiz Popup -->
+    <div
+      id="quizPopup"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div
+        style="
+          background: linear-gradient(
+            135deg,
+            rgba(30, 30, 30, 0.95),
+            rgba(50, 50, 50, 0.95)
+          );
+          padding: 40px;
+          border-radius: 20px;
+          max-width: 600px;
+          width: 90%;
+          max-height: 90vh;
+          overflow-y: auto;
+          border: 2px solid rgba(224, 163, 255, 0.3);
+          box-shadow: 0 0 50px rgba(224, 163, 255, 0.5);
+        "
+      >
+        <button
+          onclick="closeQuizPopup()"
+          style="
+            float: right;
+            background: transparent;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            color: #e0a3ff;
+          "
+        >
+          &times;
+        </button>
+
+        <h2 style="color: #e0a3ff; text-align: center; margin-bottom: 30px">
+          📋 Diagnostic Flash
+        </h2>
+        <p style="text-align: center; margin-bottom: 30px; opacity: 0.9">
+          À quel point êtes-vous dépendant des GAFAM ?
+        </p>
+
+        <div id="quizContent">
+          <!-- Question 1 -->
+          <div class="quiz-question" id="q1" style="display: block">
+            <h3 style="color: #ff69b4; margin-bottom: 20px">Question 1/5</h3>
+            <p style="font-size: 1.1em; margin-bottom: 20px">
+              Quel est votre système d'exploitation principal ?
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 15px">
+              <button onclick="selectAnswer(1, 3)" class="quiz-option">
+                Windows avec Microsoft 365
+              </button>
+              <button onclick="selectAnswer(1, 2)" class="quiz-option">
+                macOS avec iCloud
+              </button>
+              <button onclick="selectAnswer(1, 1)" class="quiz-option">
+                Linux avec logiciels libres
+              </button>
+              <button onclick="selectAnswer(1, 2)" class="quiz-option">
+                Windows mais j'essaie d'éviter les services cloud
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="quiz-question" id="q2" style="display: none">
+            <h3 style="color: #ff69b4; margin-bottom: 20px">Question 2/5</h3>
+            <p style="font-size: 1.1em; margin-bottom: 20px">
+              Pour le stockage et partage de documents, vous utilisez :
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 15px">
+              <button onclick="selectAnswer(2, 3)" class="quiz-option">
+                Google Drive ou OneDrive exclusivement
+              </button>
+              <button onclick="selectAnswer(2, 2)" class="quiz-option">
+                Dropbox ou autre service cloud commercial
+              </button>
+              <button onclick="selectAnswer(2, 1)" class="quiz-option">
+                Nextcloud ou serveur personnel
+              </button>
+              <button onclick="selectAnswer(2, 2)" class="quiz-option">
+                Clé USB et disque dur externe
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="quiz-question" id="q3" style="display: none">
+            <h3 style="color: #ff69b4; margin-bottom: 20px">Question 3/5</h3>
+            <p style="font-size: 1.1em; margin-bottom: 20px">
+              Combien de services Google utilisez-vous régulièrement ?
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 15px">
+              <button onclick="selectAnswer(3, 3)" class="quiz-option">
+                5 ou plus (Gmail, Drive, Maps, YouTube, etc.)
+              </button>
+              <button onclick="selectAnswer(3, 2)" class="quiz-option">
+                2 à 4 services
+              </button>
+              <button onclick="selectAnswer(3, 1)" class="quiz-option">
+                1 service ou aucun
+              </button>
+              <button onclick="selectAnswer(3, 2)" class="quiz-option">
+                Je ne sais pas exactement
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="quiz-question" id="q4" style="display: none">
+            <h3 style="color: #ff69b4; margin-bottom: 20px">Question 4/5</h3>
+            <p style="font-size: 1.1em; margin-bottom: 20px">
+              Pour les visioconférences, vous préférez :
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 15px">
+              <button onclick="selectAnswer(4, 3)" class="quiz-option">
+                Zoom, Teams ou Google Meet
+              </button>
+              <button onclick="selectAnswer(4, 2)" class="quiz-option">
+                Skype ou FaceTime
+              </button>
+              <button onclick="selectAnswer(4, 1)" class="quiz-option">
+                Jitsi Meet ou BigBlueButton (solutions libres)
+              </button>
+              <button onclick="selectAnswer(4, 2)" class="quiz-option">
+                Je n'utilise pas de visioconférence
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="quiz-question" id="q5" style="display: none">
+            <h3 style="color: #ff69b4; margin-bottom: 20px">Question 5/5</h3>
+            <p style="font-size: 1.1em; margin-bottom: 20px">
+              Quand votre ordinateur devient lent, vous :
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 15px">
+              <button onclick="selectAnswer(5, 3)" class="quiz-option">
+                En achetez un nouveau systématiquement
+              </button>
+              <button onclick="selectAnswer(5, 2)" class="quiz-option">
+                Cherchez à optimiser Windows/macOS
+              </button>
+              <button onclick="selectAnswer(5, 1)" class="quiz-option">
+                Installez Linux pour lui donner une seconde vie
+              </button>
+              <button onclick="selectAnswer(5, 2)" class="quiz-option">
+                Le faites réparer ou ajoutez de la RAM
+              </button>
+            </div>
+          </div>
+
+          <!-- Résultats -->
+          <div id="quizResults" style="display: none; text-align: center">
+            <h3 style="color: #e0a3ff; margin-bottom: 20px; font-size: 2em">
+              Vos résultats
+            </h3>
+            <div
+              id="resultContent"
+              style="
+                padding: 30px;
+                background: rgba(224, 163, 255, 0.1);
+                border-radius: 15px;
+                margin: 20px 0;
+              "
+            ></div>
+            <button
+              onclick="restartQuiz()"
+              style="
+                margin-top: 20px;
+                padding: 15px 40px;
+                background: linear-gradient(135deg, #e0a3ff, #ff69b4);
+                border: none;
+                border-radius: 50px;
+                color: white;
+                font-weight: 600;
+                cursor: pointer;
+                font-size: 1.1em;
+              "
+            >
+              Recommencer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Générateur d'argumentaire Popup -->
+    <div
+      id="argumentPopup"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div
+        style="
+          background: linear-gradient(
+            135deg,
+            rgba(30, 30, 30, 0.95),
+            rgba(50, 50, 50, 0.95)
+          );
+          padding: 40px;
+          border-radius: 20px;
+          max-width: 700px;
+          width: 90%;
+          max-height: 90vh;
+          overflow-y: auto;
+          border: 2px solid rgba(224, 163, 255, 0.3);
+          box-shadow: 0 0 50px rgba(224, 163, 255, 0.5);
+        "
+      >
+        <button
+          onclick="closeArgumentPopup()"
+          style="
+            float: right;
+            background: transparent;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            color: #e0a3ff;
+          "
+        >
+          &times;
+        </button>
+
+        <h2 style="color: #e0a3ff; text-align: center; margin-bottom: 30px">
+          📄 Générateur d'argumentaire
+        </h2>
+        <p style="text-align: center; margin-bottom: 30px; opacity: 0.9">
+          Choisissez votre contexte pour générer un argumentaire personnalisé
+        </p>
+
+        <div style="margin-bottom: 30px">
+          <label
+            style="
+              display: block;
+              margin-bottom: 10px;
+              color: #ff69b4;
+              font-weight: 600;
+            "
+            >Type d'établissement :</label
+          >
+          <select
+            id="etablissement"
+            style="
+              width: 100%;
+              padding: 12px;
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid rgba(224, 163, 255, 0.3);
+              border-radius: 5px;
+              color: white;
+            "
+          >
+            <option value="college">Collège</option>
+            <option value="lycee">Lycée</option>
+            <option value="ecole">École primaire</option>
+            <option value="universite">Université</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 30px">
+          <label
+            style="
+              display: block;
+              margin-bottom: 10px;
+              color: #ff69b4;
+              font-weight: 600;
+            "
+            >Principal argument :</label
+          >
+          <select
+            id="argument"
+            style="
+              width: 100%;
+              padding: 12px;
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid rgba(224, 163, 255, 0.3);
+              border-radius: 5px;
+              color: white;
+            "
+          >
+            <option value="economique">Économique (réduction des coûts)</option>
+            <option value="ecologique">Écologique (empreinte carbone)</option>
+            <option value="pedagogique">Pédagogique (apprentissage)</option>
+            <option value="souverainete">Souveraineté des données</option>
+          </select>
+        </div>
+
+        <button
+          onclick="generateArgument()"
+          style="
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #e0a3ff, #ff69b4);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+          "
+        >
+          Générer l'argumentaire
+        </button>
+
+        <div
+          id="argumentResult"
+          style="
+            display: none;
+            padding: 25px;
+            background: rgba(224, 163, 255, 0.1);
+            border-radius: 15px;
+            margin-top: 20px;
+          "
+        ></div>
+      </div>
+    </div>
+
+    <!-- Calculateur de durée de vie Popup -->
+    <div
+      id="calculatorPopup"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div
+        style="
+          background: linear-gradient(
+            135deg,
+            rgba(30, 30, 30, 0.95),
+            rgba(50, 50, 50, 0.95)
+          );
+          padding: 40px;
+          border-radius: 20px;
+          max-width: 600px;
+          width: 90%;
+          max-height: 90vh;
+          overflow-y: auto;
+          border: 2px solid rgba(224, 163, 255, 0.3);
+          box-shadow: 0 0 50px rgba(224, 163, 255, 0.5);
+        "
+      >
+        <button
+          onclick="closeCalculatorPopup()"
+          style="
+            float: right;
+            background: transparent;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            color: #e0a3ff;
+          "
+        >
+          &times;
+        </button>
+
+        <h2 style="color: #e0a3ff; text-align: center; margin-bottom: 30px">
+          ⏱️ Calculateur de durée de vie
+        </h2>
+        <p style="text-align: center; margin-bottom: 30px; opacity: 0.9">
+          Mon ordinateur peut-il encore servir ?
+        </p>
+
+        <div style="margin-bottom: 25px">
+          <label
+            style="
+              display: block;
+              margin-bottom: 10px;
+              color: #ff69b4;
+              font-weight: 600;
+            "
+            >Année d'achat de l'ordinateur :</label
+          >
+          <input
+            type="number"
+            id="computerYear"
+            min="2000"
+            max="2025"
+            value="2015"
+            style="
+              width: 100%;
+              padding: 12px;
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid rgba(224, 163, 255, 0.3);
+              border-radius: 5px;
+              color: white;
+            "
+          />
+        </div>
+
+        <div style="margin-bottom: 25px">
+          <label
+            style="
+              display: block;
+              margin-bottom: 10px;
+              color: #ff69b4;
+              font-weight: 600;
+            "
+            >Quantité de RAM (Go) :</label
+          >
+          <input
+            type="number"
+            id="ramAmount"
+            min="1"
+            max="128"
+            value="4"
+            style="
+              width: 100%;
+              padding: 12px;
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid rgba(224, 163, 255, 0.3);
+              border-radius: 5px;
+              color: white;
+            "
+          />
+        </div>
+
+        <div style="margin-bottom: 25px">
+          <label
+            style="
+              display: block;
+              margin-bottom: 10px;
+              color: #ff69b4;
+              font-weight: 600;
+            "
+            >Type de disque dur :</label
+          >
+          <select
+            id="diskType"
+            style="
+              width: 100%;
+              padding: 12px;
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid rgba(224, 163, 255, 0.3);
+              border-radius: 5px;
+              color: white;
+            "
+          >
+            <option value="hdd">HDD (disque dur classique)</option>
+            <option value="ssd">SSD (disque SSD)</option>
+            <option value="unknown">Je ne sais pas</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 25px">
+          <label
+            style="
+              display: block;
+              margin-bottom: 10px;
+              color: #ff69b4;
+              font-weight: 600;
+            "
+            >Utilisation principale :</label
+          >
+          <select
+            id="usage"
+            style="
+              width: 100%;
+              padding: 12px;
+              background: rgba(255, 255, 255, 0.1);
+              border: 1px solid rgba(224, 163, 255, 0.3);
+              border-radius: 5px;
+              color: white;
+            "
+          >
+            <option value="office">Bureautique (Word, Email, Internet)</option>
+            <option value="multimedia">Multimédia (Photo, Vidéo légère)</option>
+            <option value="gaming">Gaming / 3D / Montage vidéo</option>
+          </select>
+        </div>
+
+        <button
+          onclick="calculateLifespan()"
+          style="
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #e0a3ff, #ff69b4);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+          "
+        >
+          Calculer
+        </button>
+
+        <div
+          id="calculatorResult"
+          style="
+            display: none;
+            padding: 25px;
+            background: rgba(224, 163, 255, 0.1);
+            border-radius: 15px;
+            margin-top: 20px;
+            text-align: center;
+          "
+        ></div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div id="addModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Ajouter un établissement</h2>
+
+        <form id="addEtabForm">
+          <label>Nom de l’établissement</label>
+          <input type="text" id="etabName" required />
+
+          <label>Adresse</label>
+          <input type="text" id="etabAddr" required />
+
+          <label>Description / témoignage</label>
+          <textarea id="etabDesc" required></textarea>
+
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+    </div>
+
+    <style>
+      .quiz-option {
+        padding: 15px 20px;
+        background: rgba(224, 163, 255, 0.1);
+        border: 2px solid rgba(224, 163, 255, 0.3);
+        border-radius: 10px;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: left;
+      }
+      .quiz-option:hover {
+        background: rgba(224, 163, 255, 0.3);
+        border-color: #e0a3ff;
+        transform: translateX(10px);
+      }
+    </style>
+
+    <script>
+      let currentQuestion = 1;
+      let score = 0;
+
+      function openQuizPopup() {
+        document.getElementById("quizPopup").style.display = "flex";
+        restartQuiz();
+      }
+
+      function closeQuizPopup() {
+        document.getElementById("quizPopup").style.display = "none";
+      }
+
+      function selectAnswer(question, points) {
+        score += points;
+
+        // Cache la question actuelle
+        document.getElementById("q" + question).style.display = "none";
+
+        // Affiche la question suivante ou les résultats
+        if (question < 5) {
+          currentQuestion++;
+          document.getElementById("q" + currentQuestion).style.display =
+            "block";
+        } else {
+          showResults();
+        }
+      }
+
+      function showResults() {
+        document.getElementById("quizResults").style.display = "block";
+
+        let resultHTML = "";
+        let resultTitle = "";
+        let resultDescription = "";
+        let resultEmoji = "";
+
+        if (score <= 7) {
+          resultEmoji = "🌟";
+          resultTitle = "Champion de la liberté numérique !";
+          resultDescription =
+            "Bravo ! Vous êtes déjà très engagé dans l'utilisation de solutions libres et durables. Vous êtes un modèle pour la communauté NIRD !";
+        } else if (score <= 11) {
+          resultEmoji = "🚀";
+          resultTitle = "En bonne voie vers l'indépendance";
+          resultDescription =
+            "Vous avez déjà fait des efforts pour réduire votre dépendance. Continuez sur cette lancée ! Explorez nos ressources pour aller encore plus loin.";
+        } else {
+          resultEmoji = "⚠️";
+          resultTitle = "Très dépendant des GAFAM";
+          resultDescription =
+            "Vous êtes fortement dépendant des solutions propriétaires. Pas de panique ! C'est le moment parfait pour commencer votre transition. Découvrez nos missions pour vous libérer progressivement.";
+        }
+
+        resultHTML = `
+                <div style="font-size: 4em; margin-bottom: 20px;">${resultEmoji}</div>
+                <h4 style="color: #ff69b4; font-size: 1.5em; margin-bottom: 15px;">${resultTitle}</h4>
+                <p style="font-size: 1.1em; line-height: 1.6; opacity: 0.9;">${resultDescription}</p>
+                <div style="margin-top: 30px; padding: 20px; background: rgba(255, 105, 180, 0.1); border-radius: 10px;">
+                    <p style="font-size: 1.2em;"><strong>Votre score : ${score}/15</strong></p>
+                </div>
+            `;
+
+        document.getElementById("resultContent").innerHTML = resultHTML;
+      }
+
+      function restartQuiz() {
+        score = 0;
+        currentQuestion = 1;
+
+        // Cache toutes les questions et les résultats
+        for (let i = 1; i <= 5; i++) {
+          document.getElementById("q" + i).style.display = "none";
+        }
+        document.getElementById("quizResults").style.display = "none";
+
+        // Affiche la première question
+        document.getElementById("q1").style.display = "block";
+      }
+
+      // Fermer le popup en cliquant en dehors
+      document
+        .getElementById("quizPopup")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeQuizPopup();
+          }
+        });
+
+      // Simulateur d'impact
+      const ordinateurs = document.getElementById("ordinateurs");
+      const licences = document.getElementById("licences");
+      const hebergement = document.getElementById("hebergement");
+
+      ordinateurs.addEventListener("input", updateResults);
+      licences.addEventListener("input", updateResults);
+      hebergement.addEventListener("input", updateResults);
+
+      function updateResults() {
+        document.getElementById("ordis-value").textContent = ordinateurs.value;
+        document.getElementById("licences-value").textContent = licences.value;
+        document.getElementById("hebergement-value").textContent =
+          hebergement.value + "%";
+
+        const econ = ordinateurs.value * 200 + licences.value * 50;
+        const co2Val = ordinateurs.value * 150 + licences.value * 10;
+        const donnees = Math.min(100, parseInt(hebergement.value));
+
+        document.getElementById("economies").textContent =
+          econ.toLocaleString();
+        document.getElementById("co2").textContent = co2Val.toLocaleString();
+        document.getElementById("donnees").textContent = donnees;
+      }
+
+      // Générateur d'argumentaire
+      function openArgumentPopup() {
+        document.getElementById("argumentPopup").style.display = "flex";
+      }
+
+      function closeArgumentPopup() {
+        document.getElementById("argumentPopup").style.display = "none";
+      }
+
+      function generateArgument() {
+        const etablissement = document.getElementById("etablissement").value;
+        const argument = document.getElementById("argument").value;
+
+        const arguments = {
+          economique: {
+            college: {
+              title: "Économies substantielles pour votre collège",
+              points: [
+                "💰 <strong>Réduction de 60% des coûts de licences</strong> en passant aux logiciels libres (LibreOffice, GIMP, etc.)",
+                "💻 <strong>Prolongation de 5 ans de la durée de vie</strong> des ordinateurs grâce à Linux",
+                "📉 <strong>Économie annuelle estimée : 15 000 € à 25 000 €</strong> pour un collège de 500 élèves",
+                "🔧 <strong>Maintenance simplifiée</strong> : mises à jour automatiques et gratuites",
+              ],
+            },
+            lycee: {
+              title: "ROI positif dès la première année",
+              points: [
+                "💰 <strong>Économie de 80 000 € à 150 000 €</strong> sur 5 ans pour un lycée de 1000 élèves",
+                "🖥️ <strong>Reconditionnement de 100+ postes</strong> au lieu d'acheter du neuf",
+                "📊 <strong>Budget libéré</strong> pour d'autres projets pédagogiques",
+                "🌍 <strong>Indépendance vis-à-vis des éditeurs</strong> et de leurs hausses de prix",
+              ],
+            },
+            ecole: {
+              title: "Solution accessible pour votre école",
+              points: [
+                "💰 <strong>Économie de 5 000 € à 8 000 €</strong> par an sur les licences",
+                "🎓 <strong>Logiciels éducatifs libres</strong> : GCompris, Scratch, Tux Paint (gratuits)",
+                "💻 <strong>Vieux ordinateurs transformés</strong> en postes performants avec Linux",
+                "👨‍🏫 <strong>Formation simple</strong> : interface intuitive pour les enseignants",
+              ],
+            },
+            universite: {
+              title: "Optimisation budgétaire à grande échelle",
+              points: [
+                "💰 <strong>Économie de 500 000 € à 1M €</strong> sur 5 ans",
+                "🔬 <strong>Logiciels scientifiques libres</strong> : R, Python, LaTeX, Octave",
+                "🖥️ <strong>Infrastructure serveur open source</strong> : économie massive sur les datacenter",
+                "📚 <strong>Exemple : Université de Munich</strong> a économisé 10M € en passant à Linux",
+              ],
+            },
+          },
+          ecologique: {
+            college: {
+              title: "Engagement écologique concret",
+              points: [
+                "🌱 <strong>Réduction de 2 tonnes de CO₂</strong> par an en reconditionnant 50 ordinateurs",
+                "♻️ <strong>Zéro déchet électronique</strong> : prolongation de vie du matériel de 3 à 8 ans",
+                "🌍 <strong>Alignement avec les objectifs</strong> du développement durable (ODD 12 et 13)",
+                "📚 <strong>Valeur pédagogique</strong> : sensibilisation des élèves à la sobriété numérique",
+              ],
+            },
+            lycee: {
+              title: "Lycée éco-responsable et moderne",
+              points: [
+                "🌱 <strong>5 tonnes de CO₂ évitées</strong> par an avec 100 ordinateurs reconditionnés",
+                "🏆 <strong>Labellisation E3D possible</strong> (Établissement en Démarche de Développement Durable)",
+                "♻️ <strong>250 kg de déchets électroniques</strong> évités annuellement",
+                "👥 <strong>Implication des éco-délégués</strong> dans un projet concret et mesurable",
+              ],
+            },
+            ecole: {
+              title: "École exemplaire pour l'environnement",
+              points: [
+                "🌱 <strong>500 kg de CO₂ évités</strong> par an en reconditionnant 20 ordinateurs",
+                "🌍 <strong>Éducation à l'environnement</strong> : apprentissage par l'exemple",
+                "♻️ <strong>Réduction de l'empreinte écologique</strong> de l'établissement",
+                "🎓 <strong>Projet fédérateur</strong> pour toute la communauté éducative",
+              ],
+            },
+            universite: {
+              title: "Université verte et responsable",
+              points: [
+                "🌱 <strong>50 tonnes de CO₂ évitées</strong> par an (équivalent de 200 000 km en voiture)",
+                "🏆 <strong>Amélioration du classement</strong> dans les labels RSE et DD",
+                "♻️ <strong>10 tonnes de déchets électroniques</strong> évités annuellement",
+                "🔬 <strong>Recherche exemplaire</strong> : infrastructure verte pour les laboratoires",
+              ],
+            },
+          },
+          pedagogique: {
+            college: {
+              title: "Apprentissage du numérique responsable",
+              points: [
+                "🎓 <strong>Compétences numériques</strong> : comprendre le fonctionnement réel des ordinateurs",
+                "🔓 <strong>Culture du libre</strong> : collaboration, partage, entraide",
+                "💻 <strong>Programmation facilitée</strong> : Python, Scratch pré-installés sur Linux",
+                "🌐 <strong>Citoyenneté numérique</strong> : sensibilisation à la protection des données",
+              ],
+            },
+            lycee: {
+              title: "Excellence pédagogique et innovation",
+              points: [
+                "🎓 <strong>Préparation au supérieur</strong> : 60% des serveurs mondiaux sont sous Linux",
+                "💻 <strong>Options informatiques renforcées</strong> : NSI, SNT avec outils professionnels",
+                "🔬 <strong>Projets techniques ambitieux</strong> : serveurs, programmation, réseaux",
+                "🏆 <strong>Hackathons et olympiades</strong> : participation aux événements tech",
+              ],
+            },
+            ecole: {
+              title: "Apprentissage ludique et moderne",
+              points: [
+                "🎨 <strong>Créativité encouragée</strong> : logiciels de dessin, musique, vidéo gratuits",
+                "🎓 <strong>Initiation au code</strong> : Scratch, ScratchJr adaptés aux enfants",
+                "📚 <strong>Ressources éducatives libres</strong> : contenus gratuits et adaptables",
+                "🌈 <strong>Inclusion numérique</strong> : mêmes outils pour tous, sans coût familial",
+              ],
+            },
+            universite: {
+              title: "Excellence académique et recherche",
+              points: [
+                "🔬 <strong>Outils de recherche professionnels</strong> : R, Python, LaTeX, MATLAB libre",
+                "🎓 <strong>Formation aux standards industriels</strong> : Linux, Git, Docker",
+                "🌐 <strong>Collaboration internationale</strong> : partage de ressources avec d'autres universités",
+                "💼 <strong>Employabilité accrue</strong> : compétences recherchées par les entreprises tech",
+              ],
+            },
+          },
+          souverainete: {
+            college: {
+              title: "Protection des données des élèves",
+              points: [
+                "🔐 <strong>Données hébergées en France</strong> : conformité RGPD totale",
+                "🇫🇷 <strong>Souveraineté numérique</strong> : pas de transfert vers les USA ou la Chine",
+                "🛡️ <strong>Contrôle total</strong> : vous décidez qui accède aux données",
+                "📊 <strong>Transparence</strong> : logiciels open source = code vérifiable",
+              ],
+            },
+            lycee: {
+              title: "Souveraineté et sécurité des données",
+              points: [
+                "🔐 <strong>Serveur local</strong> : toutes les données restent dans l'établissement",
+                "🇫🇷 <strong>Cloud souverain</strong> : alternative française à Google Drive / Office 365",
+                "🛡️ <strong>Protection contre l'espionnage</strong> : pas d'accès des GAFAM aux données",
+                "⚖️ <strong>Conformité juridique</strong> : respect du droit français et européen",
+              ],
+            },
+            ecole: {
+              title: "Sécurité et confidentialité garanties",
+              points: [
+                "🔐 <strong>Données des enfants protégées</strong> : pas de profilage commercial",
+                "🇫🇷 <strong>Hébergement local</strong> : serveur dans l'école ou la commune",
+                "🛡️ <strong>Pas de publicité ciblée</strong> : logiciels libres sans tracking",
+                "👨‍👩‍👧 <strong>Confiance des parents</strong> : transparence totale sur l'utilisation des données",
+              ],
+            },
+            universite: {
+              title: "Souveraineté académique et scientifique",
+              points: [
+                "🔐 <strong>Recherche confidentielle</strong> : données sensibles protégées",
+                "🇫🇷 <strong>Infrastructure souveraine</strong> : indépendance vis-à-vis des GAFAM",
+                "🛡️ <strong>Protection de la propriété intellectuelle</strong> : brevets et publications sécurisés",
+                "🌍 <strong>Coopération européenne</strong> : alternatives aux solutions américaines",
+              ],
+            },
+          },
+        };
+
+        const selectedArgument = arguments[argument][etablissement];
+
+        let resultHTML = `
+                <h3 style="color: #ff69b4; font-size: 1.5em; margin-bottom: 20px;">${selectedArgument.title}</h3>
+                <div style="text-align: left;">
+            `;
+
+        selectedArgument.points.forEach((point) => {
+          resultHTML += `<p style="margin: 15px 0; line-height: 1.8; font-size: 1.05em;">${point}</p>`;
+        });
+
+        resultHTML += `
+                </div>
+                <div style="margin-top: 30px; padding: 20px; background: rgba(255, 105, 180, 0.1); border-radius: 10px; border-left: 4px solid #ff69b4;">
+                    <p style="font-weight: 600; margin-bottom: 10px;">📋 Prochaines étapes :</p>
+                    <p style="font-size: 0.95em;">1. Présentez cet argumentaire à votre direction</p>
+                    <p style="font-size: 0.95em;">2. Demandez une phase de test sur quelques postes</p>
+                    <p style="font-size: 0.95em;">3. Contactez le réseau NIRD pour un accompagnement</p>
+                </div>
+                <button onclick="copyArgument()" style="margin-top: 20px; padding: 12px 25px; background: rgba(224, 163, 255, 0.3); border: 1px solid #e0a3ff; border-radius: 8px; color: white; cursor: pointer; width: 100%;">📋 Copier l'argumentaire</button>
+            `;
+
+        document.getElementById("argumentResult").innerHTML = resultHTML;
+        document.getElementById("argumentResult").style.display = "block";
+      }
+
+      function copyArgument() {
+        const text = document.getElementById("argumentResult").innerText;
+        navigator.clipboard.writeText(text);
+        alert("✅ Argumentaire copié dans le presse-papier !");
+      }
+
+      // Calculateur de durée de vie
+      function openCalculatorPopup() {
+        document.getElementById("calculatorPopup").style.display = "flex";
+      }
+
+      function closeCalculatorPopup() {
+        document.getElementById("calculatorPopup").style.display = "none";
+      }
+
+      function calculateLifespan() {
+        const year = parseInt(document.getElementById("computerYear").value);
+        const ram = parseInt(document.getElementById("ramAmount").value);
+        const diskType = document.getElementById("diskType").value;
+        const usage = document.getElementById("usage").value;
+
+        const currentYear = 2025;
+        const age = currentYear - year;
+
+        let verdict = "";
+        let emoji = "";
+        let recommendation = "";
+        let color = "";
+
+        // Logique de calcul
+        let score = 0;
+
+        if (age <= 3) score += 30;
+        else if (age <= 5) score += 20;
+        else if (age <= 8) score += 10;
+        else score += 5;
+
+        if (ram >= 8) score += 30;
+        else if (ram >= 4) score += 20;
+        else score += 10;
+
+        if (diskType === "ssd") score += 25;
+        else if (diskType === "hdd") score += 10;
+        else score += 15;
+
+        if (usage === "office") score += 15;
+        else if (usage === "multimedia") score += 10;
+        else score += 5;
+
+        // Évaluation finale
+        if (score >= 70) {
+          emoji = "✅";
+          verdict = "Excellent état !";
+          recommendation = `Votre ordinateur est encore très performant ! Avec ${ram}Go de RAM et ${age} ans d'âge, il peut continuer à servir pendant plusieurs années, surtout pour de la ${
+            usage === "office"
+              ? "bureautique"
+              : usage === "multimedia"
+              ? "multimédia"
+              : "utilisation intensive"
+          }.`;
+          color = "#00ff00";
+        } else if (score >= 50) {
+          emoji = "💚";
+          verdict = "Peut encore servir avec Linux !";
+          recommendation = `Votre ordinateur de ${age} ans avec ${ram}Go de RAM peut avoir une seconde vie ! En installant Linux Mint ou Ubuntu, vous retrouverez de la fluidité. ${
+            diskType === "hdd"
+              ? "Conseil : remplacez le disque dur par un SSD pour un gain de performance spectaculaire (+300% de vitesse) !"
+              : "Avec votre SSD, les performances seront excellentes sous Linux."
+          }`;
+          color = "#90EE90";
+        } else if (score >= 35) {
+          emoji = "⚠️";
+          verdict = "Nécessite quelques améliorations";
+          recommendation = `Votre ordinateur de ${age} ans avec ${ram}Go de RAM peut encore servir avec quelques améliorations : ${
+            ram < 8 ? "Ajoutez de la RAM (8Go minimum recommandé). " : ""
+          }${
+            diskType !== "ssd"
+              ? "Remplacez le disque dur par un SSD (150-200€, gain énorme). "
+              : ""
+          }Installez une distribution Linux légère comme Xubuntu ou Linux Mint Xfce.`;
+          color = "#FFD700";
+        } else {
+          emoji = "🔄";
+          verdict = "Reconversion recommandée";
+          recommendation = `Votre ordinateur de ${age} ans avec ${ram}Go de RAM est très ancien. ${
+            usage === "gaming"
+              ? "Pour du gaming/3D, il faudra envisager un remplacement. "
+              : ""
+          }Cependant, il peut encore servir pour : ${
+            usage !== "gaming" ? "Navigation web basique avec Lubuntu. " : ""
+          }Serveur domestique (Nextcloud, Plex). Don à une association qui le reconditionnera.`;
+          color = "#FFA500";
+        }
+
+        const resultHTML = `
+                <div style="font-size: 4em; margin-bottom: 20px;">${emoji}</div>
+                <h3 style="color: ${color}; font-size: 1.8em; margin-bottom: 20px;">${verdict}</h3>
+                <p style="line-height: 1.8; margin-bottom: 20px;">${recommendation}</p>
+                <div style="padding: 20px; background: rgba(224, 163, 255, 0.1); border-radius: 10px; margin-top: 20px;">
+                    <p style="font-weight: 600; margin-bottom: 10px;">📊 Analyse détaillée :</p>
+                    <p style="margin: 8px 0;">🗓️ Âge : ${age} ans (acheté en ${year})</p>
+                    <p style="margin: 8px 0;">💾 RAM : ${ram} Go</p>
+                    <p style="margin: 8px 0;">💿 Disque : ${
+                      diskType === "ssd"
+                        ? "SSD (rapide ✅)"
+                        : diskType === "hdd"
+                        ? "HDD (lent ⚠️)"
+                        : "Inconnu"
+                    }</p>
+                    <p style="margin: 8px 0;">🎯 Usage : ${
+                      usage === "office"
+                        ? "Bureautique"
+                        : usage === "multimedia"
+                        ? "Multimédia"
+                        : "Gaming/3D"
+                    }</p>
+                    <p style="margin: 8px 0; font-size: 1.2em; font-weight: bold; color: #e0a3ff;">Score global : ${score}/100</p>
+                </div>
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255, 105, 180, 0.1); border-radius: 10px; text-align: left;">
+                    <p style="font-weight: 600; margin-bottom: 8px;">🚀 Ressources utiles :</p>
+                    <p style="font-size: 0.95em;">• Guide d'installation Linux Mint</p>
+                    <p style="font-size: 0.95em;">• Tuto : Remplacer HDD par SSD</p>
+                    <p style="font-size: 0.95em;">• Où acheter de la RAM compatible</p>
+                </div>
+            `;
+
+        document.getElementById("calculatorResult").innerHTML = resultHTML;
+        document.getElementById("calculatorResult").style.display = "block";
+      }
+
+      // Chercheur de ressources
+      function searchResources() {
+        const query = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const resultsDiv = document.getElementById("searchResults");
+
+        if (query.trim() === "") {
+          resultsDiv.style.display = "none";
+          return;
+        }
+
+        const resources = [
+          {
+            title: "Guide d'installation Linux Mint",
+            category: "Tutoriel",
+            tags: ["linux", "installation", "débutant", "mint"],
+          },
+          {
+            title: "Migrer de Google Drive à Nextcloud",
+            category: "Migration",
+            tags: ["nextcloud", "cloud", "google", "migration"],
+          },
+          {
+            title: "Moodle : Plateforme d'apprentissage",
+            category: "Éducation",
+            tags: ["moodle", "éducation", "cours", "lms"],
+          },
+          {
+            title: "LibreOffice pour l'enseignement",
+            category: "Bureautique",
+            tags: ["libreoffice", "bureautique", "office", "gratuit"],
+          },
+          {
+            title: "Scratch pour initier à la programmation",
+            category: "Programmation",
+            tags: ["scratch", "code", "enfants", "programmation"],
+          },
+          {
+            title: "GIMP : Alternative à Photoshop",
+            category: "Graphisme",
+            tags: ["gimp", "photo", "graphisme", "retouche"],
+          },
+          {
+            title: "Proxmox : Virtualisation serveur",
+            category: "Infrastructure",
+            tags: ["proxmox", "serveur", "virtualisation", "vm"],
+          },
+          {
+            title: "Guide sobriété numérique",
+            category: "Écologie",
+            tags: ["écologie", "sobriété", "co2", "environnement"],
+          },
+          {
+            title: "Python pour l'éducation",
+            category: "Programmation",
+            tags: ["python", "code", "apprentissage", "sciences"],
+          },
+          {
+            title: "Audacity : Montage audio libre",
+            category: "Multimédia",
+            tags: ["audio", "son", "musique", "montage"],
+          },
+        ];
+
+        const results = resources.filter(
+          (resource) =>
+            resource.title.toLowerCase().includes(query) ||
+            resource.tags.some((tag) => tag.includes(query)) ||
+            resource.category.toLowerCase().includes(query)
+        );
+
+        let html = "";
+        if (results.length > 0) {
+          html =
+            '<h4 style="color: #ff69b4; margin-bottom: 15px;">📚 Résultats trouvés :</h4>';
+          results.forEach((result) => {
+            html += `
+                        <div style="padding: 15px; background: rgba(224, 163, 255, 0.1); border-radius: 8px; margin-bottom: 10px; border-left: 3px solid #e0a3ff;">
+                            <p style="font-weight: 600; color: #e0a3ff; margin-bottom: 5px;">${result.title}</p>
+                            <p style="font-size: 0.9em; opacity: 0.8;">Catégorie : ${result.category}</p>
+                            <button style="margin-top: 10px; padding: 8px 15px; background: rgba(255, 105, 180, 0.2); border: none; border-radius: 5px; cursor: pointer; color: white;">Accéder →</button>
+                        </div>
+                    `;
+          });
+        } else {
+          html = `
+                    <div style="padding: 20px; text-align: center;">
+                        <p style="color: #ff69b4;">❌ Aucune ressource trouvée pour "${query}"</p>
+                        <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">Essayez : linux, moodle, python, scratch, nextcloud...</p>
+                    </div>
+                `;
+        }
+
+        resultsDiv.innerHTML = html;
+        resultsDiv.style.display = "block";
+      }
+
+      // Fermer les popups en cliquant en dehors
+      document
+        .getElementById("argumentPopup")
+        ?.addEventListener("click", function (e) {
+          if (e.target === this) closeArgumentPopup();
+        });
+
+      document
+        .getElementById("calculatorPopup")
+        ?.addEventListener("click", function (e) {
+          if (e.target === this) closeCalculatorPopup();
+        });
+
+      function searchResources() {
+        const query = document.getElementById("searchInput").value.trim();
+
+        if (!query) {
+          alert("Veuillez entrer un mot clé !");
+          return;
+        }
+
+        document.getElementById("searchResults").style.display = "block";
+        document.getElementById("searchResults").innerHTML =
+          "Résultats pour : <b>" + query + "</b>";
+      }
+      var map = L.map("map").setView([46.8, 2.2], 6);
+
+      // Fond de carte
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "© OpenStreetMap",
+      }).addTo(map);
+
+      // Exemple d’établissement engagé
+      var marker = L.marker([48.8566, 2.3522]).addTo(map);
+      marker.bindPopup("<b>Établissement A</b><br> Témoignage court ici.");
+
+      function openModal() {
+        document.getElementById("addModal").style.display = "flex";
+      }
+
+      function closeModal() {
+        document.getElementById("addModal").style.display = "none";
+      }
+
+      // Form submission
+      document
+        .getElementById("addEtabForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Établissement ajouté !");
+          closeModal();
+        });
+    </script>
+    <script src="templatemo-neural-scripts.js"></script>
+  </body>
+</html>
